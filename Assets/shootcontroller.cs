@@ -5,10 +5,12 @@ public class shootcontroller : MonoBehaviour
 {
     public GameObject ball;
     float speed;
+    
 
     void Start()
     {
         speed = 10.0f;  // 弾の速度
+       
     }
 
     void Update()
@@ -29,6 +31,8 @@ public class shootcontroller : MonoBehaviour
             // 弾に速度を与える
             clone.GetComponent<Rigidbody2D>().velocity = shotForward * speed;
 
+
         }
+
     }
 }
