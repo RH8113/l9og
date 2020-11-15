@@ -15,7 +15,7 @@ public class targetcontroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        interval = 5f;
+        interval = 3f;
     }
 
     // Update is called once per frame
@@ -27,9 +27,12 @@ public class targetcontroller : MonoBehaviour
         {
             GameObject whiteheart = Instantiate(whiteheartprefab);
             GameObject blackheart = Instantiate(blackheartprefab);
-            transform.position = GetRandomPosition();
+            whiteheart.transform.position = GetRandomPosition();
+            blackheart.transform.position = GetRandomPosition();
             time = 0f;
         }
+
+        
 
     }
 

@@ -4,6 +4,8 @@ using UnityEngine;
 public class shootcontroller : MonoBehaviour
 {
     public GameObject ball;
+    public GameObject whiteball;
+   
     float speed;
     
 
@@ -30,9 +32,26 @@ public class shootcontroller : MonoBehaviour
 
             // 弾に速度を与える
             clone.GetComponent<Rigidbody2D>().velocity = shotForward * speed;
-
-
         }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            // 弾（ゲームオブジェクト）の生成
+            GameObject clone = Instantiate(whiteball, transform.position, Quaternion.identity);
+
+            // クリックした座標の取得（スクリーン座標からワールド座標に変換）
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            // 向きの生成（Z成分の除去と正規化）
+            Vector3 shotForward = Vector3.Scale((mouseWorldPos - transform.position), new Vector3(1, 1, 0)).normalized;
+
+            // 弾に速度を与える
+            clone.GetComponent<Rigidbody2D>().velocity = shotForward * speed;
+        }
+
+
+
     }
+
+    
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class balldestroy : MonoBehaviour
 {
     public float life = 3.0f;
+    
     float time = 0f;
 
     void start()
@@ -21,5 +22,18 @@ public class balldestroy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.gameObject.tag == "whiteheartTag")
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
+
 }   
