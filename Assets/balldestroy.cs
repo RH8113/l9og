@@ -3,15 +3,18 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using UnityEngine;
 
+
+
 public class balldestroy : MonoBehaviour
 {
     public float life = 3.0f;
-    
     float time = 0f;
+
 
     void start()
     {
         time = 0f;
+       
     }
 
     void Update()
@@ -28,10 +31,12 @@ public class balldestroy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        
 
         if (other.gameObject.tag == "whiteheartTag")
         {
             Destroy(other.gameObject);
+            
         }
     }
 
